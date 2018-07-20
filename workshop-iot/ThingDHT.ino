@@ -23,7 +23,7 @@ const char* password = "password";
  
 //Colocar a API Key para escrita neste campo
 //Ela é fornecida no canal que foi criado na aba API Keys
-String apiKey = "XXXXXXXXXXXXXXXXXXX";
+String apiKey = "YWLLC4JHBPBJ06M2";
 const char* server = "api.thingspeak.com";
  
 DHT dht(DHT_DATA_PIN, DHTTYPE);
