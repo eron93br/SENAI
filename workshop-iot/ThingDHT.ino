@@ -1,32 +1,22 @@
-/* Pedro Minatel - Sistemas Embarcados
-*
-* Este programa envia os dados coletados do DHT11 para a plataforma de IoT
-* thingspeak.com
-* Data: 16 de Setembro de 2015
-* Author: Pedro Minatel
-* Website: http://pedrominatel.com.br
-*/
  
 //Include da lib de Wifi do ESP8266
 #include <ESP8266WiFi.h>
+#include <DHT.h>
+
 //Include da lib do sensor DHT11 e DHT22
-#include "DHT.h"
- 
-//Define do pino a ser utilizado no ESP para o sensor = GPIO4
-#define DHT_DATA_PIN 4
-#define DHTTYPE DHT11
- 
+
+DHT dht(D4,DHT11);
+  
 //Definir o SSID da rede WiFi
-const char* ssid = "ssid";
+const char* ssid = "GVT-093B";
 //Definir a senha da rede WiFi
-const char* password = "password";
+const char* password = "S1F4531025";
  
 //Colocar a API Key para escrita neste campo
 //Ela é fornecida no canal que foi criado na aba API Keys
 String apiKey = "YWLLC4JHBPBJ06M2";
 const char* server = "api.thingspeak.com";
- 
-DHT dht(DHT_DATA_PIN, DHTTYPE);
+
 WiFiClient client;
  
 void setup() {
@@ -55,11 +45,10 @@ void loop() {
  
   //Espera 20 segundos para fazer a leitura
   delay(20000);
-  //Leitura de umidade
-  float umidade = dht.readHumidity();
-  //Leitura de temperatura
-  float temperatura = dht.readTemperature();
- 
+
+  float umidade = (int) dht.readHumidity();
+  float temperatura = (int)dht.readTemperature(); 
+
   //Se não for um numero retorna erro de leitura
   if (isnan(umidade) || isnan(temperatura)) {
     Serial.println("Erro ao ler o sensor!");
