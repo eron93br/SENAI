@@ -1,7 +1,11 @@
-# start...
+# Workshop de Introdução à IoT - SENAI
+
+- Códigos para o workshop 
+
+- Documentos
 
 
-# Libraries
+# Arduino Libraries
 
 https://github.com/adafruit/DHT-sensor-library 
 https://github.com/adafruit/Adafruit_Sensor
