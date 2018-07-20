@@ -5,6 +5,9 @@
 #define SENHA_REDE    "  "  //coloque aqui a senha da rede que se deseja conectar
 #define INTERVALO_ENVIO_THINGSPEAK  450000  //intervalo entre envios de dados ao ThingSpeak (em ms)
 
+int pinopir = D7; //Pino ligado ao sensor PIR
+int acionamento; //Variavel para guardar valor do sensor
+
 //constantes e variáveis globais
 char EnderecoAPIThingSpeak[] = "api.thingspeak.com";
 String ChaveEscritaThingSpeak = "KGFP6X4JQTJZFIAP";
